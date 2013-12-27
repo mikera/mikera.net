@@ -48,6 +48,11 @@
 			<artifactId>http-kit</artifactId>
 			<version>2.1.14</version>
 		</dependency>
+		<dependency>
+			<groupId>liberator</groupId>
+			<artifactId>liberator</artifactId>
+			<version>0.10.0</version>
+		</dependency>
 	</dependencies>
 
 
