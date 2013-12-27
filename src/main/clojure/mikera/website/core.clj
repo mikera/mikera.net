@@ -2,7 +2,8 @@
   (:require [org.httpkit.server :as hk])
   (:require [ring.middleware params])
   (:require [compojure.core :as cc])
-  (:require [liberator.core :as lib]))
+  (:require [liberator.core :as lib])
+  (:require [clojure.tools.nrepl.server :as nrepl]))
 
 (defn base 
   [req]
@@ -21,4 +22,6 @@
 
 (defonce server
   (hk/run-server #'app {:port 8080}))
+
+(defonce nrepl-server (nrepl/start-server :port 7888))
 
