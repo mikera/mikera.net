@@ -14,7 +14,7 @@
 
 (def res
   (lib/resource :available-media-types ["text/html"]
-                :handle-ok "<html>Hello, Internet.</html>"))
+                :handle-ok "<html><body>Hello, Internet.</body></html>"))
 
 (cc/defroutes app
   (cc/ANY "/b" [] base)
