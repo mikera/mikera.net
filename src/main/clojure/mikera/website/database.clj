@@ -1,4 +1,4 @@
-(ns mikera.website.dastabase
+(ns mikera.website.database
   (:require [clojure.java.jdbc :as j]))
 
 (Class/forName "org.h2.Driver")
