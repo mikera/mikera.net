@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp 
+			spec="1.0+"
+			codebase="http://mikera.net/ironclad/">
+
+	<information>
+		<title>Ironclad</title>
+		<vendor>Mike Anderson</vendor>
+		<homepage href="http://mikera.net/ironclad/" />
+		<description>Ironclad Technology Demonstrator</description>
+	</information>
+
+	<offline-allowed/>
+
+	<security>
+	   <all-permissions/> 
+	</security>
+
+	<resources>
+		<j2se 
+			version="1.5+" 
+			max-heap-size="512m" 
+			java-vm-args="
+				-XX:+UnlockExperimentalVMOptions  
+				-XX:+UseG1GC 
+				-XX:MaxGCPauseMillis=30 
+				-XX:+DoEscapeAnalysis" />
+		<jar href="ironclad.jar"/>
+	</resources>
+	
+	<application-desc main-class="ic.IronClad"> 
+	</application-desc>
+	
+</jnlp>
