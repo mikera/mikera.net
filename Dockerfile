@@ -3,7 +3,7 @@ MAINTAINER mikera
 
 RUN sudo apt-get update
 
-ADD target/my-app-0.0.1-SNAPSHOT-standalone.jar /srv/my-app.jar 
+ADD target/mikerasite.jar /mikerasite.jar 
 
 EXPOSE 8080                                                    
 

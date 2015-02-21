@@ -70,6 +70,31 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<finalName>mikerasite</finalName>		
+	 	<plugins>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.1.1</version>
+				<configuration>
+					<certPath>C:/Users/Mike/.boot2docker/certs/boot2docker-vm</certPath>
+					<dockerHost>http://192.168.59.103:2375</dockerHost>
+					<imageName>mikerasite</imageName>
+					<dockerDirectory>${basedir} </dockerDirectory>
+					<!-- copy the service's jar file from target into the root directory 
+						of the image -->
+					<resources>
+						<resource>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<repositories>
 		<repository>
 			<id>clojars.org</id>
