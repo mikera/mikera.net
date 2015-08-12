@@ -9,19 +9,19 @@
 	<parent>
 		<groupId>net.mikera</groupId>
 		<artifactId>clojure-pom</artifactId>
-		<version>0.4.0</version>
+		<version>0.6.0</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.clojure</groupId>
 			<artifactId>clojure</artifactId>
-			<version>1.7.0-alpha2</version>
+			<version>1.8.0-alpha4</version>
 		</dependency>
 		<dependency>
 			<groupId>ring</groupId>
 			<artifactId>ring</artifactId>
-			<version>1.3.1</version>
+			<version>1.4.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.clojure</groupId>
@@ -31,17 +31,17 @@
 		<dependency>
 			<groupId>org.clojure</groupId>
 			<artifactId>data.json</artifactId>
-			<version>0.2.5</version>
+			<version>0.2.6</version>
 		</dependency>
 		<dependency>
 			<groupId>compojure</groupId>
 			<artifactId>compojure</artifactId>
-			<version>1.2.0</version>
+			<version>1.4.0</version>
 		</dependency>
 		<dependency>
 			<groupId>ring</groupId>
 			<artifactId>ring-core</artifactId>
-			<version>1.3.1</version>
+			<version>1.4.0</version>
 		</dependency>
 		<dependency>
 			<groupId>http-kit</groupId>
@@ -51,22 +51,22 @@
 		<dependency>
 			<groupId>liberator</groupId>
 			<artifactId>liberator</artifactId>
-			<version>0.12.2</version>
+			<version>0.13</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.181</version>
+			<version>1.4.187</version>
 		</dependency>
 		<dependency>
 			<groupId>org.clojure</groupId>
 			<artifactId>java.jdbc</artifactId>
-			<version>0.3.5</version>
+			<version>0.4.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.clojure</groupId>
 			<artifactId>tools.nrepl</artifactId>
-			<version>0.2.6</version>
+			<version>0.2.10</version>
 		</dependency>
 	</dependencies>
 
