@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>org.clojure</groupId>
 			<artifactId>clojure</artifactId>
-			<version>1.8.0-alpha4</version>
+			<version>1.8.0-RC2</version>
 		</dependency>
 		<dependency>
 			<groupId>ring</groupId>
@@ -26,7 +26,7 @@
 		<dependency>
 			<groupId>org.clojure</groupId>
 			<artifactId>core.async</artifactId>
-			<version>0.1.346.0-17112a-alpha</version>
+			<version>0.2.374</version>
 		</dependency>
 		<dependency>
 			<groupId>org.clojure</groupId>
@@ -51,22 +51,22 @@
 		<dependency>
 			<groupId>liberator</groupId>
 			<artifactId>liberator</artifactId>
-			<version>0.13</version>
+			<version>0.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.187</version>
+			<version>1.4.190</version>
 		</dependency>
 		<dependency>
 			<groupId>org.clojure</groupId>
 			<artifactId>java.jdbc</artifactId>
-			<version>0.4.1</version>
+			<version>0.4.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.clojure</groupId>
 			<artifactId>tools.nrepl</artifactId>
-			<version>0.2.10</version>
+			<version>0.2.12</version>
 		</dependency>
 	</dependencies>
 
