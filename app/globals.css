@@ -32,8 +32,8 @@ header {
 }
 
 .mike {
-    font-weight: bold;
-    font-size: 2em;
+    font-family: 'Inter', sans-serif;
+    font-size: 3em;
     text-decoration: none;
 }
 
