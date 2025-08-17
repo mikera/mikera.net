@@ -6,11 +6,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "export": "next build && next export"
+    "start": "next start"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.21",
     "next": "^15.4.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
