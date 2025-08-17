@@ -1,3 +1,5 @@
+import Project from '../components/Project'
+
 export default function Projects() {
   const projects = [
     {
@@ -33,24 +35,15 @@ export default function Projects() {
 
       <div>
         {projects.map((project) => (
-          <div key={project.id}>
-            <div>
-              <h3>{project.title}</h3>
-              <span>{project.status}</span>
-            </div>
-            
-            <p>{project.description}</p>
-            
-            <div>
-              {project.tech.map((tech) => (
-                <span key={tech}>{tech}</span>
-              ))}
-            </div>
-            
-            <a href={project.link}>
-              {project.link === '#' ? 'Coming Soon' : 'View Project →'}
-            </a>
-          </div>
+          <Project
+            key={project.id}
+            id={project.id}
+            title={project.title}
+            description={project.description}
+            tech={project.tech}
+            link={project.link}
+            status={project.status}
+          />
         ))}
       </div>
 
