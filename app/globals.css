@@ -7,6 +7,7 @@
 
 body {
     font-family: Roboto, sans-serif;
+    padding: 0.5em;
     line-height: 1.6;
     color: #333;
 }
@@ -20,8 +21,44 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Header Menu*/
+
+header {
+    display: flex;
+    width: 100%;
+    padding: 0.5em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mike {
+    font-weight: bold;
+    font-size: 2em;
+    text-decoration: none;
+}
+
 .menubar {
     display: flex;
+    gap: 1em;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menubar a {
+    font-weight: bold;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+
+
+/* Footer */
+
+footer {
+    display: flex;
+    width: 100%;
+    padding: 0.5em;
     justify-content: space-between;
     align-items: center;
 }
