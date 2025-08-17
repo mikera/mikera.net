@@ -5,3 +5,9 @@ html {
   
 body {
 }
+
+.menubar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

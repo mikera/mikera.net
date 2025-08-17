@@ -1,4 +1,4 @@
-import Project from '../components/Project'
+import Project from './Project'
 
 export default function Projects() {
   const projects = [
@@ -30,7 +30,7 @@ export default function Projects() {
 
   return (
     <div>
-      <h1>My Projects</h1>
+      <h1>Projects</h1>
       <p>A collection of things I've built and worked on</p>
 
       <div>

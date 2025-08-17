@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Mike Anderson - mikera.net',
@@ -19,15 +20,19 @@ export default function RootLayout({
         <link rel="icon" href="/mikera.ico" />
       </head>
       <body>
-        <nav>
-          <div>
-            <a href="/">Mike Anderson</a>
+        <header className="menubar">
+          <nav>
             <div>
-              <a href="/">Home</a>
-              <a href="/projects">Projects</a>
+              <div>
+                <a href="/">Mike Anderson</a>
+              </div>
+              <div>
+                <a href="/">Home</a>
+                <a href="/projects">Projects</a>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </header>
         <main>
           {children}
         </main>
