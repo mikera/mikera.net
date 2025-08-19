@@ -35,7 +35,7 @@ export default function RootLayout({
       </head>
       <body>
         <header>
-          <div class="mike">
+          <div className="mike">
             <a href="/">Mike Anderson</a>
           </div>
           <nav>

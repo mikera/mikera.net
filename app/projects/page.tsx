@@ -31,9 +31,9 @@ export default function Projects() {
   return (
     <div>
       <h1>Projects</h1>
-      <p>A collection of things I've built and worked on</p>
+      <p>A collection of personal projects, contributions and experiments</p>
 
-      <div>
+      <div className="projects">
         {projects.map((project) => (
           <Project
             key={project.id}

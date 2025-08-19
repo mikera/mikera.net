@@ -9,7 +9,7 @@ interface ProjectProps {
 
 export default function Project({ id, title, description, tech, link, status }: ProjectProps) {
   return (
-    <div>
+    <div className="project">
       <div>
         <h3>{title}</h3>
         <span>{status}</span>
