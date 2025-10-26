@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navigation from './components/Navigation'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'mikera.net',
@@ -27,7 +28,7 @@ export default function RootLayout({
       <body>
         <header>
           <div>
-            <a href="/"><h1>mikera</h1></a>
+            <Link href="/"><h1>mikera</h1></Link>
           </div>
           <nav>
             <Navigation />
