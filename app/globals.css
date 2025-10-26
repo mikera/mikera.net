@@ -1,8 +1,8 @@
 /* CSS Custom Properties - Theme Colors */
 :root {
   /* Primary Colors */
-  --color-primary: #0066cc;
-  --color-primary-hover: #0052a3;
+  --color-primary: #22dd88;
+  --color-primary-hover: #ff52a3;
   --color-primary-light: #4d94ff;
   
   /* Secondary Colors */
@@ -11,12 +11,12 @@
   --color-secondary-light: #e6b3e6;
   
   /* Neutral Colors */
-  --color-text: #333333;
+  --color-text: #aaaaaa;
   --color-text-light: #666666;
   --color-text-muted: #999999;
   
   /* Background Colors */
-  --color-bg: #ffffff;
+  --color-bg: #222;
   --color-bg-secondary: #f5f5f5;
   --color-bg-muted: #e0e0e0;
   
@@ -36,13 +36,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
-    font-family: Roboto, sans-serif;
-    padding: 0.5em;
-    line-height: 1.6;
+    font-family: Noto Serif, sans-serif;
+    line-height: 1.4; /* More accessible line height */
     color: var(--color-text);
+    background-color: var(--color-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -50,10 +54,41 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
-    color: var(--color-primary-hover);
+main {
+    padding: 1em;
+    flex: 1;
 }
+
+a:hover {
+    color: var(--color-primary-hover);
+    text-shadow: 
+    0 0 10px var(--color-text),
+    0 0 30px var(--color-text),
+    -12 -2 1px var(--color-text);
+}
+
+/* Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Lato, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+input, button, textarea, select {
+    font: inherit; /* Don't have custom typography for these elements */
+}
+
+/* Better image handling */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
 
 /* Projects */
 
@@ -75,50 +110,28 @@ a:hover {
 
 header {
     display: flex;
+    padding: 1em;
     width: 100%;
-    padding: 0.5em;
     justify-content: space-between;
     align-items: center;
-}
-
-.mike {
-    font-family: 'Inter', sans-serif;
-    font-size: 3em;
-    text-decoration: none;
-}
-
-.mike a {
-    text-decoration: none;
-} 
-
-.mike a:hover {
-    color: var(--color-secondary);
 }
 
 .menubar {
     display: flex;
     gap: 1em;
+    font-style: bold;
     width: 100%;
     justify-content: space-between;
     align-items: center;
-}
-
-.menubar a {
-    font-weight: bold;
-    font-size: 1.5em;
-    text-decoration: none;
-}
-
-.menubar a:hover {
-    color: var(--color-primary-hover);
 }
 
 /* Footer */
 
 footer {
     display: flex;
+    padding: 1em;
     width: 100%;
-    padding: 0.5em;
     justify-content: space-between;
     align-items: center;
+    min-height: 10em;
 }
