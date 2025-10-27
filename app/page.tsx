@@ -1,7 +1,16 @@
 export default function Home() {
   return (
-    <p>Hello, world!</p>
-      
-   
+    <div style={{ textAlign: 'center' }}>
+      <img 
+        src="/mike-bw.jpg" 
+        alt="Mike" 
+        style={{ 
+          width: '12rem', 
+          objectFit: 'cover',
+          borderRadius: '30%',
+          margin: '0 auto'
+        }} 
+      />
+    </div>
   )
 } 

@@ -1,10 +1,9 @@
 export default function Manifesto() {
   return (
     <div>
-      <h1>Manifesto</h1>
-      
+     
       <section>
-        <h2>Principles</h2>
+        <h3>Principles</h3>
         <ul>
           <li><strong>Simplicity over complexity</strong> - Clean solutions win over clever ones</li>
           <li><strong>Open over closed</strong> - Knowledge should be shared and accessible</li>

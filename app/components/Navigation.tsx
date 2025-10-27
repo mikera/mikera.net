@@ -4,9 +4,9 @@ export default function MenuNavigation() {
   return (
     <div className="menubar">
 
-      <Link href="/"><h3>Home</h3></Link>
-      <Link href="/manifesto"><h3>Manifesto</h3></Link>
-      <Link href="/projects"><h3>Projects</h3> </Link>
+      <h3><Link href="/">Home</Link></h3>
+      <h3><Link href="/manifesto">Manifesto</Link></h3>
+      <h3><Link href="/projects">Creations</Link></h3>
     </div>
   )
 } 

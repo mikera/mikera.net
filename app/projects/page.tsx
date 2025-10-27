@@ -1,85 +1,110 @@
+function getTagColor(tag: string): string {
+  // Simple hash function
+  let hash = 0
+  for (let i = 0; i < tag.length; i++) {
+    hash = tag.charCodeAt(i) + ((hash << 5) - hash)
+  }
+  
+  // Generate hue between 0-360
+  const hue = Math.abs(hash) % 360
+  
+  // Pastel colors: high lightness (85-95%) and low-medium saturation (30-50%)
+  const lightness = 60 + (Math.abs(hash) % 10) // 85-95%
+  const saturation = 5 + (Math.abs(hash) % 5)  // 30-50%
+  
+  return `oklch(${lightness}% ${saturation / 100} ${hue})`
+}
+
+function Tag({ tag }: { tag: string }) {
+  const backgroundColor = getTagColor(tag)
+  
+  return (
+      <b className="tag" 
+      style={{ backgroundColor }}>{tag}</b>
+  )
+}
+
 export default function Projects() {
   const projects = [
     {
-      id: 1,
-      title: "Personal Website",
-      description: "This website built with Next.js 15, TypeScript, and Tailwind CSS. Features static export and GitHub Pages deployment.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-      link: "https://github.com/mikera/mikera.net",
-      status: "Live"
+      title: "Convex",
+      description: "Platform for realtime decentralised economic systems and self-sovereign applications. Like blockchain, but more ethical, elegant and efficient.",
+      link: "https://convex.world",
+      tags: ["Lisp", "Convex", "Java"]
+    },
+    { 
+      title: "core.matrix",
+      description: "Numerical computing in Clojure - roughly equivalent to NumPy, with an emphasis on functional programming and flexibility to support different array implementations.",
+      link: "https://github.com/mikera/core.matrix",
+      tags: ["Clojure", "AI", "Numerics"]
     },
     {
-      id: 2,
-      title: "Open Source Contributions",
-      description: "Contributing to various open source projects in the JavaScript and web development ecosystem.",
-      tech: ["JavaScript", "React", "Node.js"],
+      title: "mikera.net",
+      description: "Personal website, featuring projects, experiments and occasional crazy ideas. Also my attempt to get back into web development after a long hiatus.",
+      link: "https://mikera.net",
+      tags: ["Web"]
+    },
+    {
+      title: "Open Source @ Github",
+      description: "I've been writing open source code for ~30 years now, mostly out of interest and a philosophical commitment to free software. A lot of my stuff is here.",
       link: "https://github.com/mikera",
-      status: "Active"
+      tags: ["Active", "OSS"]
     },
     {
-      id: 3,
-      title: "Future Project",
-      description: "A project I'm planning to build. More details coming soon!",
-      tech: ["Planning", "Design", "Development"],
-      link: "#",
-      status: "Planning"
+      title: "Tyrant",
+      description: "Roguelike game in Java, notable for being my first semi-serious game project.",
+      link: "https://github.com/mikera/tyrant",
+      tags: ["Games", "Ancient", "Roguelike"]
+    },
+    {
+      title: "Ironclad",
+      description: "Steampunk-themed battle strategy game, written in Clojure. Notable for having a 100% immutable persistent game state model.",
+      link: "https://github.com/mikera/ironclad",
+      tags: ["Games", "Strategy", "Steampunk"]
     }
+
   ]
 
   return (
     <div>
-      <h1>Projects</h1>
-      <p>A collection of personal projects, contributions and experiments</p>
-
       <div className="projects">
         {projects.map((project) => (
           <Project
-            key={project.id}
-            id={project.id}
             title={project.title}
             description={project.description}
-            tech={project.tech}
             link={project.link}
-            status={project.status}
+            tags={project.tags}
           />
         ))}
       </div>
 
-      <div>
-        <a href="/">← Back to Home</a>
-      </div>
     </div>
   )
 } 
 
 interface ProjectProps {
-  id: number
   title: string
   description: string
-  tech: string[]
   link: string
-  status: string
+  tags: string[]
 }
 
-function Project({ id, title, description, tech, link, status }: ProjectProps) {
+function Project({ title, description, link, tags }: ProjectProps) {
   return (
-    <div className="project">
+    <div className="project" id={title}>
       <div>
-        <h3>{title}</h3>
-        <span>{status}</span>
+      <a href={link}>
+        <h4>{title}</h4> 
+      </a>
       </div>
       
       <p>{description}</p>
       
-      <div>
-        {tech.map((techItem) => (
-          <span key={techItem}>{techItem}</span>
+      <div className="project-tags">
+        {tags.map((tag) => (
+          <Tag key={tag} tag={tag} />
         ))}
       </div>
-      
-      <a href={link}>
-        {link === '#' ? 'Coming Soon' : 'View'}
-      </a>
     </div>
   )
 } 
