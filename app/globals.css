@@ -4,6 +4,7 @@
   --color-primary: #2d8;
   --color-primary-hover: #f5b;
   --color-primary-light: #4d94ff;
+  --color-primary-muted: #386;
   
   /* Secondary Colors */
   --color-secondary: #cc66cc;
@@ -19,7 +20,7 @@
   /* Background Colors */
   --color-bg: #222;
   --color-bg-secondary: #000;
-  --color-bg-muted: #e0e0e0;
+  --color-bg-muted: #010;
   
   /* Border Colors */
   --color-border: #333;
@@ -139,10 +140,46 @@ img, picture, video, canvas, svg {
     padding: 1em;
     flex-direction: column;
     gap: 1em;
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-primary-muted);
+    background-color: var(--color-bg-muted);
+    border-radius: 0.5rem;
 }
 
-.project > p {
+.project-content {
+    display: flex;
+    gap: 1em;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.project-content > div {
+    width: 25%;
+    min-width: 5rem;
+    max-width: 10rem;
+    flex-shrink: 0;
+}
+
+.project-thumbnail {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0.25rem;
+}
+
+@media (max-width: 600px) {
+    .project-content > div {
+        width: 100%;
+        order: 2;
+        max-width: 6rem;
+
+    }
+    
+    .project-content > p {
+        order: 1;
+    }
+}
+
+.project-content > p {
     flex: 1;
 }
 

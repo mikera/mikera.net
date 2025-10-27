@@ -1,10 +1,12 @@
+import Link from 'next/link'
 
 export default function Projects() {
   const projects = [
     {
       title: "Convex",
-      description: "Platform for realtime decentralised economic systems and self-sovereign applications. Like blockchain, but more ethical, elegant and efficient.",
+      description: "Platform for realtime decentralised economic systems and self-sovereign applications. Like blockchain, but ethical, elegant and efficient.",
       link: "https://convex.world",
+      thumbnail: "/projects/Convex.png",
       tags: ["Lisp", "Convex", "Java"]
     },
     { 
@@ -15,27 +17,50 @@ export default function Projects() {
     },
     {
       title: "mikera.net",
-      description: "Personal website, featuring projects, experiments and occasional crazy ideas. Also my attempt to get back into web development after a long hiatus.",
+      description: "Personal website, featuring projects, experiments and occasional crazy ideas.",
       link: "https://mikera.net",
       tags: ["Web"]
+    },
+    
+    {
+      title: "blockgame",
+      description: "Minecraft-like game in Convex! World's first fully on-chain 3D voxel game, build as a demonstration of the power of Lattice Technology.",
+      link: "https://github.com/mikera/blockgame",
+      thumbnail: "/projects/blockgame.jpg",
+      tags: ["Games", "Convex", "Lattice"]
+    },
+    {
+      title: "Tyrant",
+      description: "Roguelike game in Java, notable for being my first semi-serious game project.",
+      link: "https://github.com/mikera/tyrant",
+      thumbnail: "/projects/tyrant.png",
+      tags: ["Games", "Ancient", "Roguelike"]
+    },
+    {
+      title: "Ironclad",
+      description: "Steampunk-themed battle strategy game, written in Clojure. Notable for having a 100% immutable persistent game state model, and graphics assets rendered in POV-Ray.",
+      link: "https://github.com/mikera/ironclad",
+      thumbnail: "/projects/ironclad.jpg",
+      tags: ["Games", "Strategy", "Steampunk"]
+    },
+    {
+      title: "imagez",
+      description: "Image processing library for Clojure. Useful for programmatic manipulation of images.",
+      thumbnail: "/projects/imagez.png",
+      link: "https://github.com/mikera/imagez",
+      tags: ["Clojure", "Image Processing"]
+    },{
+      title: "Java Life",
+      description: "Conway's Game of Life implemented in Java. A neat, very fast implementation with flexible rules.",
+      link: "https://github.com/mikera/java-life",
+      thumbnail: "/projects/life.png",
+      tags: ["Simulation", "Conway"]
     },
     {
       title: "Open Source @ Github",
       description: "I've been writing open source code for ~30 years now, mostly out of interest and a philosophical commitment to free software. A lot of my stuff is here.",
       link: "https://github.com/mikera",
       tags: ["Active", "OSS"]
-    },
-    {
-      title: "Tyrant",
-      description: "Roguelike game in Java, notable for being my first semi-serious game project.",
-      link: "https://github.com/mikera/tyrant",
-      tags: ["Games", "Ancient", "Roguelike"]
-    },
-    {
-      title: "Ironclad",
-      description: "Steampunk-themed battle strategy game, written in Clojure. Notable for having a 100% immutable persistent game state model.",
-      link: "https://github.com/mikera/ironclad",
-      tags: ["Games", "Strategy", "Steampunk"]
     }
 
   ]
@@ -50,6 +75,7 @@ export default function Projects() {
             description={project.description}
             link={project.link}
             tags={project.tags}
+            thumbnail={project.thumbnail}
           />
         ))}
       </div>
@@ -90,18 +116,46 @@ interface ProjectProps {
   description: string
   link: string
   tags: string[]
+  thumbnail?: string
 }
 
-function Project({ title, description, link, tags }: ProjectProps) {
+function Project({ title, description, link, tags, thumbnail }: ProjectProps) {
+  const isExternal = link.startsWith('http')
+  
+  const linkProps = isExternal 
+    ? { href: link, target: '_blank', rel: 'noopener noreferrer' } 
+    : { href: link }
+  
   return (
     <div className="project" id={title}>
       <div>
-      <a href={link}>
-        <h4>{title}</h4> 
-      </a>
+      {isExternal ? (
+        <a {...linkProps}>
+          <h4>{title}</h4>
+        </a>
+      ) : (
+        <Link href={link}>
+          <h4>{title}</h4>
+        </Link>
+      )}
       </div>
       
-      <p>{description}</p>
+      <div className="project-content">
+        <p>{description}</p>
+          {thumbnail && (
+            <div>
+              {isExternal ? (
+                <a {...linkProps}>
+                  <img src={thumbnail} alt={title} className="project-thumbnail" />
+                </a>
+              ) : (
+                <Link href={link}>
+                  <img src={thumbnail} alt={title} className="project-thumbnail" />
+                </Link>
+              )}
+            </div>
+        )}
+      </div>
       
       <div className="project-tags">
         {tags.map((tag) => (
