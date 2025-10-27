@@ -1,28 +1,3 @@
-function getTagColor(tag: string): string {
-  // Simple hash function
-  let hash = 0
-  for (let i = 0; i < tag.length; i++) {
-    hash = tag.charCodeAt(i) + ((hash << 5) - hash)
-  }
-  
-  // Generate hue between 0-360
-  const hue = Math.abs(hash) % 360
-  
-  // Pastel colors: high lightness (85-95%) and low-medium saturation (30-50%)
-  const lightness = 60 + (Math.abs(hash) % 10) // 85-95%
-  const saturation = 5 + (Math.abs(hash) % 5)  // 30-50%
-  
-  return `oklch(${lightness}% ${saturation / 100} ${hue})`
-}
-
-function Tag({ tag }: { tag: string }) {
-  const backgroundColor = getTagColor(tag)
-  
-  return (
-      <b className="tag" 
-      style={{ backgroundColor }}>{tag}</b>
-  )
-}
 
 export default function Projects() {
   const projects = [
@@ -70,6 +45,7 @@ export default function Projects() {
       <div className="projects">
         {projects.map((project) => (
           <Project
+            key={project.title}
             title={project.title}
             description={project.description}
             link={project.link}
@@ -81,6 +57,33 @@ export default function Projects() {
     </div>
   )
 } 
+
+function getTagColor(tag: string): string {
+  // Simple hash function
+  let hash = 0
+  for (let i = 0; i < tag.length; i++) {
+    hash = tag.charCodeAt(i) + ((hash << 5) - hash)
+  }
+  
+  // Generate hue between 0-360
+  const hue = Math.abs(hash) % 360
+  
+  // Pastel colors: high lightness (85-95%) and low-medium saturation (30-50%)
+  const lightness = 60 + (Math.abs(hash) % 10) // 85-95%
+  const saturation = 5 + (Math.abs(hash) % 5)  // 30-50%
+  
+  return `oklch(${lightness}% ${saturation / 100} ${hue})`
+}
+
+function Tag({ tag }: { tag: string }) {
+  const backgroundColor = getTagColor(tag)
+  
+  return (
+      <b className="tag" 
+      style={{ backgroundColor }}>{tag}</b>
+  )
+}
+
 
 interface ProjectProps {
   title: string

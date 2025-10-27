@@ -3,7 +3,7 @@ export default function Home() {
     <div style={{ textAlign: 'center' }}>
       <img 
         src="/mike-bw.jpg" 
-        alt="Mike" 
+        alt="Mike Anderson" 
         style={{ 
           width: '12rem', 
           objectFit: 'cover',

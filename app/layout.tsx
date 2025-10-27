@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'mikera.net',
-  description: 'Mike Anderson\'s personal homepage',
+  description: 'Mike Anderson\'s personal page',
   keywords: ['hacker', 'developer', 'open-source', 'economics', 'crypto', 'blockchain', 'data', 'AI', 'freedom'],
   authors: [{ name: 'mikera', url: 'https://mikera.net' }], 
   icons: {
@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     type: 'website',
   },
+  metadataBase: new URL('https://mikera.net'),
   robots: {
     index: true, 
     follow: true
@@ -70,6 +71,8 @@ export default function RootLayout({
           <div>
             <p>Follow: <a href="https://x.com/mikera" target="_blank" rel="noopener noreferrer">@mikera</a></p>
             <p>GitHub: <a href="https://github.com/mikera" target="_blank" rel="noopener noreferrer">mikera</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/mike-cvx/" target="_blank" rel="noopener noreferrer">Mike</a></p>
+            <p>Discord: <a href="https://discord.com/invite/xfYGq4CT7v" target="_blank" rel="noopener noreferrer">Convex</a></p>
           </div>
         </footer>
       </body>
