@@ -1,5 +1,3 @@
-# Manifesto
-
 This manifesto is a clear, actionable framework for a better society. 
 
 It is not a party platform or ideological doctrine, but a personal synthesis of ideas shaped by fundamental philosophy, reason and evidence.
