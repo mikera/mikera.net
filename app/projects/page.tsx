@@ -4,30 +4,58 @@ export default function Projects() {
   const projects = [
     {
       title: "Convex",
-      description: "Platform for realtime decentralised economic systems and self-sovereign applications. Like blockchain, but ethical, elegant and efficient.",
+      description: "Realtime, self-sovereign, decentralised application platform. Like blockchain, but ethical, elegant and efficient.",
       link: "https://convex.world",
       thumbnail: "/projects/Convex.png",
       tags: ["Lisp", "Convex", "Java"]
     },
     { 
       title: "core.matrix",
-      description: "Numerical computing in Clojure - roughly equivalent to NumPy, with an emphasis on functional programming and flexibility to support different array implementations.",
+      description: "'NumPy for Clojure' – pluggable, functional, 100% immutable. with an emphasis on functional programming and flexible support for different array implementations.",
       link: "https://github.com/mikera/core.matrix",
       tags: ["Clojure", "AI", "Numerics"]
     },
     {
-      title: "mikera.net",
-      description: "Personal website, featuring projects, experiments and occasional crazy ideas.",
-      link: "https://mikera.net",
-      tags: ["Web"]
-    },
-    
-    {
       title: "blockgame",
-      description: "Minecraft-like game in Convex! World's first fully on-chain 3D voxel game, build as a demonstration of the power of Lattice Technology.",
+      description: "World's first fully on-chain 3D voxel game engine - Minecraft-style game demonstrating the power of Lattice Technology.",
       link: "https://github.com/mikera/blockgame",
       thumbnail: "/projects/blockgame.jpg",
       tags: ["Games", "Convex", "Lattice"]
+    },
+    {
+      title: "Vectorz",
+      description: "N-dimensional arrays for the JVM. Highly optimised for matrix and vector calculations and transformations.",
+      link: "https://github.com/mikera/vectorz",
+      thumbnail: "/projects/vectorz.png",
+      tags: ["Java", "Numerics"]
+    },
+    {
+      title: "Ironclad",
+      description: "Steampunk-themed battle strategy game, written in Clojure. Notable for having a 100% immutable persistent game state model, and graphics assets rendered in POV-Ray.",
+      link: "https://github.com/mikera/ironclad",
+      thumbnail: "/projects/ironclad.jpg",
+      tags: ["Games", "Strategy", "Steampunk","Clojure"]
+    },
+    {
+      title: "imagez",
+      description: "Image processing library for Clojure. Useful for programmatic manipulation of images.",
+      thumbnail: "/projects/imagez.png",
+      link: "https://github.com/mikera/imagez",
+      tags: ["Clojure", "Graphics"]
+    },
+    {
+      title: "Enlight",
+      description: "Clojure / Java raytracer for rendering 3D scenes.",
+      thumbnail: "/projects/enlight.webp",
+      link: "https://github.com/mikera/enlight",
+      tags: ["Clojure", "Graphics"]
+    },
+    {
+      title: "Java Life",
+      description: "Conway's Game of Life implemented in Java. A neat, very fast implementation with flexible rules.",
+      link: "https://github.com/mikera/java-life",
+      thumbnail: "/projects/life.png",
+      tags: ["Simulation", "Conway", "Games"]
     },
     {
       title: "Tyrant",
@@ -35,32 +63,6 @@ export default function Projects() {
       link: "https://github.com/mikera/tyrant",
       thumbnail: "/projects/tyrant.png",
       tags: ["Games", "Ancient", "Roguelike"]
-    },
-    {
-      title: "Ironclad",
-      description: "Steampunk-themed battle strategy game, written in Clojure. Notable for having a 100% immutable persistent game state model, and graphics assets rendered in POV-Ray.",
-      link: "https://github.com/mikera/ironclad",
-      thumbnail: "/projects/ironclad.jpg",
-      tags: ["Games", "Strategy", "Steampunk"]
-    },
-    {
-      title: "imagez",
-      description: "Image processing library for Clojure. Useful for programmatic manipulation of images.",
-      thumbnail: "/projects/imagez.png",
-      link: "https://github.com/mikera/imagez",
-      tags: ["Clojure", "Image Processing"]
-    },{
-      title: "Java Life",
-      description: "Conway's Game of Life implemented in Java. A neat, very fast implementation with flexible rules.",
-      link: "https://github.com/mikera/java-life",
-      thumbnail: "/projects/life.png",
-      tags: ["Simulation", "Conway"]
-    },
-    {
-      title: "Open Source @ Github",
-      description: "I've been writing open source code for ~30 years now, mostly out of interest and a philosophical commitment to free software. A lot of my stuff is here.",
-      link: "https://github.com/mikera",
-      tags: ["Active", "OSS"]
     }
 
   ]
