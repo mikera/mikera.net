@@ -333,6 +333,12 @@ footer {
     background: color-mix(in oklch, var(--color-bg) 85%, var(--color-text) 15%);
 }
 
+.markdown-body td br {
+    content: '';
+    display: block;
+    margin: 0.3rem 0;
+}
+
 .markdown-body a {
     color: var(--color-primary);
     text-decoration: none;
