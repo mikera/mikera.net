@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { topics } from '../topics'
 import Topics from './Topics'
 
@@ -23,7 +24,9 @@ export default function ManifestoPage({ initialSlug }: { initialSlug: string }) 
   useEffect(() => {
     let cancelled = false
     setLoadError(null)
-    fetch(`/manifesto/${selectedTopic}.md`)
+    const ts = process.env.NODE_ENV === 'development' ? `?ts=${Date.now()}` : ''
+    const url = `/manifesto/${selectedTopic}.md${ts}`
+    fetch(url, { cache: 'no-store' })
       .then(res => {
         if (!res.ok) {
           throw new Error(`Failed to load: ${res.status}`)
@@ -49,7 +52,9 @@ export default function ManifestoPage({ initialSlug }: { initialSlug: string }) 
         {loadError ? (
           <p>{loadError}</p>
         ) : (
-          <ReactMarkdown>{content}</ReactMarkdown>
+          <div className="markdown-body">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+          </div>
         )}
       </div>
     </div>
