@@ -43,15 +43,15 @@ export default function ManifestoPage({ initialSlug }: { initialSlug: string }) 
   }, [selectedTopic])
 
   return (
-    <div style={{ display: 'flex', gap: '2rem' }}>
+    <div style={{ display: 'flex', gap: '1rem' }}>
       <Topics />
-      <main style={{ flex: 1 }}>
+      <div style={{ flex: 1 }}>
         {loadError ? (
           <p>{loadError}</p>
         ) : (
           <ReactMarkdown>{content}</ReactMarkdown>
         )}
-      </main>
+      </div>
     </div>
   )
 }

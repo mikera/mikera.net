@@ -118,7 +118,7 @@ a:hover {
 
 /* Manifesto topics sidebar */
 .manifesto-topics nav a {
-    color: var(--color-text);
+    color: var(--color-primary-muted);
 }
 
 .manifesto-topics nav a:hover {
