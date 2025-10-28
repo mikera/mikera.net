@@ -1,31 +1,13 @@
-'use client'
-
-import { useState, useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import ReactMarkdown from 'react-markdown'
 import { topics } from '../topics'
-import Topics from '../components/Topics'
+import ManifestoPage from '../components/ManifestoPage'
 
-export default function Manifesto() {
-  const params = useParams()
-  const slug = (params?.slug as string) || 'principles'
-  const selectedTopic = topics.find(t => t.slug === slug) ? slug : 'principles'
-  
-  const [content, setContent] = useState('')
+export const dynamicParams = false
 
-  useEffect(() => {
-    fetch(`/manifesto/${selectedTopic}.md`)
-      .then(res => res.text())
-      .then(text => setContent(text))
-      .catch(err => console.error('Failed to load content:', err))
-  }, [selectedTopic])
+export function generateStaticParams() {
+  return topics.map((t) => ({ slug: t.slug }))
+}
 
-  return (
-    <div style={{ display: 'flex', gap: '2rem' }}>
-      <Topics />
-      <main style={{ flex: 1 }}>
-        <ReactMarkdown>{content}</ReactMarkdown>
-      </main>
-    </div>
-  )
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  return <ManifestoPage initialSlug={slug} />
 }

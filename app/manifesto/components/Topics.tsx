@@ -1,5 +1,5 @@
 'use client'
-
+ 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { topics } from '../topics'
@@ -9,18 +9,18 @@ export default function Topics() {
   const currentSlug = pathname.split('/').pop() || ''
 
   return (
-    <aside style={{ minWidth: '200px' }}>
+    <aside className="manifesto-topics" style={{ minWidth: '200px' }}>
       <h2><Link href="/manifesto">Manifesto</Link></h2>
       <nav>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           {topics.map(topic => (
             <li key={topic.slug}>
-              <Link 
+              <Link
                 href={`/manifesto/${topic.slug}`}
+                className={currentSlug === topic.slug ? 'is-active' : ''}
                 style={{
                   display: 'block',
                   padding: '0.2rem',
-                  color: currentSlug === topic.slug ? 'var(--color-primary)' : 'var(--color-text)',
                   textDecoration: 'none'
                 }}
               >

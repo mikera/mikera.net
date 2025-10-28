@@ -116,6 +116,21 @@ a:hover {
 }
 
 
+/* Manifesto topics sidebar */
+.manifesto-topics nav a {
+    color: var(--color-text);
+}
+
+.manifesto-topics nav a:hover {
+    color: var(--color-primary-hover);
+}
+
+.manifesto-topics nav a.is-active {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+
 input, button, textarea, select {
     font: inherit; /* Don't have custom typography for these elements */
 }
