@@ -15,7 +15,9 @@ We consider three guiding principles:
 
 If there was only one individual in the world, there would be no right or wrong. There would just be *choices* freely made, and consequences enjoyed (or suffered) subject to the constraints of reality. There would be no need for policies, manifestos or social contracts.
 
-Individuals with autonomy define good and bad according to their own preferences, and decide accordingly. We can define *value* as a subjective, probability weighted metric that represents these preferences over outcomes. To illustrate this, consider a simplified world with three possible outcomes that the individual cares about (in order of preference):
+Individuals with autonomy define good and bad according to their own preferences, and decide accordingly. We can define *value* as a subjective, probability weighted metric that represents these preferences over outcomes. This can be viewed as a variant subjective expected utility theory as first proposed by von Neumann and Morgenstern (1944) and further developed by Savage (1954).
+
+To illustrate this, consider a simplified world with three possible outcomes that the individual cares about (in order of preference):
 
 - Eat fish (best)
 - Eat fruit
@@ -43,8 +45,26 @@ If the probability weight `P=0.3` caused indifference, for example, then `X = 30
 A rational individual will try to maximise value, so in this case the individual will go fishing if `P > 0.3`, pick fruit if `P < 0.3`, possibly do either if `P=0.3` exactly, and never stay idle.
 
 
-
 ## Progress
 
+The principle of progress is that we should be able to improve outcomes for society as a whole. We take a long term view of this: short term gains and "feels" are unimportant compared to long term outcomes. We measure progress not by GDP alone, but by expanded options and opportunities for individuals to exercise their autonomy.
+
+Progress implies that changes benefit individuals in society, i.e. that they obtain better outcomes (and therefore more value). Any Pareto improvement (improvement in the outcomes of at least one individual without making any other worse off) is progress.
+
+A net increase in value that has distributional effects (i.e. the average individual benefits, some may be worse off, but not by as much as those who benefit) might also be regarded as progress - though we should also expect such effects to be fair, which leads us onto the final principle.
 
 ## Fairness
+
+Fairness
+
+Everyone should benefit from progress, so fairness implies that everyone should be given better outcomes under a well-run society (at least compared to a situation where the benefits of society were not provided).
+
+Sometimes *social choice* may result in negative effects on some individuals. Fairness required that they are properly compensated for these effects. This should always be possible, since if the choice is a net benefit for society as a whole, there must have been sufficient value created to fully compensate and individual losses.
+
+It is very important to note that fairness does *not* imply equal outcomes. Outcomes are significantly affected by individual choices (which we guarantee by the principle of autonomy) and chance (if you choose to take a risk, you do well or badly, but it was your choice....). Society's role is enabler, not an equaliser: if risks are chosen freely, rewards (or losses) are owned.
+
+We consider economic exchange between two individuals as fair if:
+
+- It occurs at a fair price (such as one set by a fair competitive market, no unfair bargaining power / monopoly etc.)
+- Both individuals are willing and able to make the exchange (no coercion etc.)
+- Any externalities (costs to 3rd parties and society as a whole) are compensated
