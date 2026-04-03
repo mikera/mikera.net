@@ -1,0 +1,108 @@
+---
+import Base from '../../layouts/Base.astro'
+
+const projects = [
+  {
+    title: "Convex",
+    description: "Realtime, self-sovereign, decentralised application platform. Like blockchain, but ethical, elegant and efficient.",
+    link: "https://convex.world",
+    thumbnail: "/projects/Convex.png",
+    tags: ["Lisp", "Convex", "Java"]
+  },
+  {
+    title: "core.matrix",
+    description: "'NumPy for Clojure' – pluggable, functional, 100% immutable. with an emphasis on functional programming and flexible support for different array implementations.",
+    link: "https://github.com/mikera/core.matrix",
+    tags: ["Clojure", "AI", "Numerics"]
+  },
+  {
+    title: "blockgame",
+    description: "World's first fully on-chain 3D voxel game engine - Minecraft-style game demonstrating the power of Lattice Technology.",
+    link: "https://github.com/mikera/blockgame",
+    thumbnail: "/projects/blockgame.jpg",
+    tags: ["Games", "Convex", "Lattice"]
+  },
+  {
+    title: "Vectorz",
+    description: "N-dimensional arrays for the JVM. Highly optimised for matrix and vector calculations and transformations.",
+    link: "https://github.com/mikera/vectorz",
+    thumbnail: "/projects/vectorz.png",
+    tags: ["Java", "Numerics"]
+  },
+  {
+    title: "Ironclad",
+    description: "Steampunk-themed battle strategy game, written in Clojure. Notable for having a 100% immutable persistent game state model, and graphics assets rendered in POV-Ray.",
+    link: "https://github.com/mikera/ironclad",
+    thumbnail: "/projects/ironclad.jpg",
+    tags: ["Games", "Strategy", "Steampunk", "Clojure"]
+  },
+  {
+    title: "imagez",
+    description: "Image processing library for Clojure. Useful for programmatic manipulation of images.",
+    thumbnail: "/projects/imagez.png",
+    link: "https://github.com/mikera/imagez",
+    tags: ["Clojure", "Graphics"]
+  },
+  {
+    title: "Enlight",
+    description: "Clojure / Java raytracer for rendering 3D scenes.",
+    thumbnail: "/projects/enlight.webp",
+    link: "https://github.com/mikera/enlight",
+    tags: ["Clojure", "Graphics"]
+  },
+  {
+    title: "Java Life",
+    description: "Conway's Game of Life implemented in Java. A neat, very fast implementation with flexible rules.",
+    link: "https://github.com/mikera/java-life",
+    thumbnail: "/projects/life.png",
+    tags: ["Simulation", "Conway", "Games"]
+  },
+  {
+    title: "Tyrant",
+    description: "Roguelike game in Java, notable for being my first semi-serious game project.",
+    link: "https://github.com/mikera/tyrant",
+    thumbnail: "/projects/tyrant.png",
+    tags: ["Games", "Ancient", "Roguelike"]
+  }
+]
+
+function getTagColor(tag: string): string {
+  let hash = 0
+  for (let i = 0; i < tag.length; i++) {
+    hash = tag.charCodeAt(i) + ((hash << 5) - hash)
+  }
+  const hue = Math.abs(hash) % 360
+  const lightness = 60 + (Math.abs(hash) % 10)
+  const saturation = 5 + (Math.abs(hash) % 5)
+  return `oklch(${lightness}% ${saturation / 100} ${hue})`
+}
+---
+
+<Base title="Creations - mikera.net">
+  <div class="projects">
+    {projects.map((project) => (
+      <div class="project" id={project.title}>
+        <div>
+          <a href={project.link} target="_blank" rel="noopener noreferrer">
+            <h4>{project.title}</h4>
+          </a>
+        </div>
+        <div class="project-content">
+          <p>{project.description}</p>
+          {project.thumbnail && (
+            <div>
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                <img src={project.thumbnail} alt={project.title} class="project-thumbnail" />
+              </a>
+            </div>
+          )}
+        </div>
+        <div class="project-tags">
+          {project.tags.map((tag) => (
+            <b class="tag" style={`background-color: ${getTagColor(tag)}`}>{tag}</b>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</Base>

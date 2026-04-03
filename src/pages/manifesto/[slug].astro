@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro'
+import ManifestoSidebar from '../../components/ManifestoSidebar.astro'
+import { getCollection, render } from 'astro:content'
+
+export async function getStaticPaths() {
+  const topics = await getCollection('manifesto')
+  return topics.map(topic => ({
+    params: { slug: topic.id },
+    props: { topic }
+  }))
+}
+
+const { topic } = Astro.props
+const { Content } = await render(topic)
+---
+
+<Base title={`${topic.data.title} - mikera.net`}>
+  <div style="display: flex; gap: 1rem;">
+    <ManifestoSidebar currentId={topic.id} />
+    <div style="flex: 1;" class="markdown-body">
+      <Content />
+    </div>
+  </div>
+</Base>

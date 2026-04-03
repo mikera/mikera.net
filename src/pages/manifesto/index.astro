@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro'
+import ManifestoSidebar from '../../components/ManifestoSidebar.astro'
+import { getCollection, render } from 'astro:content'
+
+const allTopics = await getCollection('manifesto')
+const topics = allTopics.sort((a, b) => a.data.order - b.data.order)
+const overview = topics.find(t => t.id === 'overview') ?? topics[0]
+const { Content } = await render(overview)
+---
+
+<Base title="Manifesto - mikera.net">
+  <div style="display: flex; gap: 1rem;">
+    <ManifestoSidebar currentId="overview" />
+    <div style="flex: 1;" class="markdown-body">
+      <Content />
+    </div>
+  </div>
+</Base>

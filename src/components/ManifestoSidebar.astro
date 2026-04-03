@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content'
+
+interface Props {
+  currentId?: string
+}
+
+const { currentId } = Astro.props
+
+const topics = (await getCollection('manifesto')).sort((a, b) => a.data.order - b.data.order)
+const essays = (await getCollection('essays')).sort((a, b) => a.data.order - b.data.order)
+---
+
+<aside class="manifesto-topics" style="min-width: 200px;">
+  <nav>
+    <ul style="list-style: none; padding: 0;">
+      {topics.map(t => (
+        <li>
+          <a
+            href={`/manifesto/${t.id}/`}
+            class={t.id === currentId ? 'is-active' : ''}
+            style="display: block; padding: 0.2rem; text-decoration: none;"
+          >
+            {t.data.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+    {essays.length > 0 && (
+      <>
+        <h5 style="margin-top: 1rem; margin-bottom: 0.3rem;">Essays</h5>
+        <ul style="list-style: none; padding: 0;">
+          {essays.map(e => (
+            <li>
+              <a
+                href={`/manifesto/essays/${e.id}/`}
+                class={e.id === currentId ? 'is-active' : ''}
+                style="display: block; padding: 0.2rem; text-decoration: none;"
+              >
+                {e.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </nav>
+</aside>

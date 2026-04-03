@@ -1,0 +1,18 @@
+# Mike Anderson
+
+Mike Anderson is a British technologist, entrepreneur and visionary in the fields of software engineering, decentralised systems, AI and economics
+
+## Key Biographical facts
+
+- Born in the UK, lived in multiple countries including Singapore and France
+- Cambridge University double first in mathematics and economics
+- Associate Partner at McKinsey, global thought leader on software development, architecture, IT governance and healthcare technology
+- Multiple CTO roles including Ocean Protocol and Datacraft Sciences
+- INSEAD MBA, Distinction
+- Represented UK in the 1996 International Olympiad in Informatics (Top in UK, world bronze medal)
+- Inventor of Lattice Technology as used in [Convex](https://docs.convex.world)
+- Managing Director of the non-profit [Convex Foundation](https://convex.world)
+
+## Links
+
+- [Personal home page](https://mikera.net) 
