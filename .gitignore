@@ -6,6 +6,10 @@ node_modules/
 out/
 build/
 
+# Astro
+dist/
+.astro/
+
 # Production
 /build
 
