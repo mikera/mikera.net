@@ -1,0 +1,41 @@
+---
+import Base from './Base.astro'
+import ManifestoSidebar from '../components/ManifestoSidebar.astro'
+
+interface Props {
+  title?: string
+  description?: string
+  currentId?: string
+  currentSection?: string
+}
+
+const { title, description, currentId, currentSection } = Astro.props
+---
+
+<Base title={title} description={description}>
+  <div class="manifesto-layout">
+    <ManifestoSidebar currentId={currentId} currentSection={currentSection} />
+    <div class="manifesto-content markdown-body">
+      <slot />
+    </div>
+  </div>
+</Base>
+
+<style>
+  .manifesto-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .manifesto-content {
+    flex: 1;
+    min-width: 0; /* let long content (code, tables) shrink instead of overflowing */
+  }
+
+  @media (max-width: 640px) {
+    .manifesto-layout {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -1,17 +1,9 @@
 # Dependencies
 node_modules/
 
-# Next.js
-.next/
-out/
-build/
-
-# Astro
+# Astro build output
 dist/
 .astro/
-
-# Production
-/build
 
 # Debug
 npm-debug.log*
@@ -23,7 +15,6 @@ yarn-error.log*
 
 # TypeScript
 *.tsbuildinfo
-next-env.d.ts 
 
 # Eclipse
 .project

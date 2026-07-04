@@ -3,11 +3,88 @@ import Base from '../layouts/Base.astro'
 ---
 
 <Base>
-  <div style="text-align: center;">
+  <section class="intro">
     <img
       src="/mike-bw.jpg"
       alt="Mike Anderson"
-      style="width: 12rem; object-fit: cover; border-radius: 30%; margin: 0 auto;"
+      class="intro-photo"
     />
-  </div>
+    <div class="intro-text">
+      <h2>Mike Anderson</h2>
+      <p class="lead">
+        Technologist, entrepreneur and incurable hacker — building the
+        foundations for a fairer digital economy.
+      </p>
+      <p>
+        I work where code, mathematics and economics meet — a double first from
+        Cambridge, an MBA from INSEAD, a place on the UK team at the
+        International Olympiad in Informatics, and CTO roles at ventures like
+        Ocean Protocol.
+      </p>
+      <p>
+        I'm the inventor of <strong>Lattice Technology</strong> and Managing
+        Director of the <a href="https://convex.world">Convex Foundation</a>,
+        building <a href="https://convex.world">Convex</a>: a self-sovereign,
+        decentralised network that's like blockchain, but ethical, elegant and
+        efficient. My mission is simple — use technology to expand human
+        autonomy, and build economic systems worthy of the 21st century.
+      </p>
+      <p>
+        Current projects include <a href="https://covia.ai">Covia</a> — open
+        infrastructure for federated AI orchestration — and
+        <a href="https://getmine.ai">GetMine</a>, a private vault that puts
+        people back in control of their health data.
+      </p>
+      <p>
+        Off the clock, I'm an enthusiastic modern jive dancer and an aspiring
+        novelist.
+      </p>
+    </div>
+  </section>
 </Base>
+
+<style>
+  .intro {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+
+  .intro-photo {
+    width: 14rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 30%;
+    flex-shrink: 0;
+  }
+
+  .intro-text {
+    flex: 1;
+    min-width: 18rem;
+  }
+
+  .intro-text h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .intro-text p {
+    margin: 0.75rem 0;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    color: var(--color-text-highlight);
+  }
+
+  @media (max-width: 600px) {
+    .intro {
+      text-align: center;
+    }
+    .intro-text {
+      text-align: left;
+    }
+  }
+</style>

@@ -1,0 +1,71 @@
+---
+import ManifestoLayout from '../../../layouts/ManifestoLayout.astro'
+import { policySections } from '../../../data/policySections'
+---
+
+<ManifestoLayout title="Policies - mikera.net" currentId="policies">
+  <h1>Policies</h1>
+  <p class="lead">
+    A complete policy set for an enlightened government — every measure a
+    direct consequence of the three principles: <strong>autonomy</strong>,
+    <strong>progress</strong> and <strong>fairness</strong>.
+  </p>
+  <p>
+    These are not a wish list or a set of compromises. Each policy is a
+    deduction from first principles: tax what is taken from the commons,
+    stop taxing what people create, keep markets open, make those who impose
+    costs on others pay for them, and trust adults with their own freedom.
+  </p>
+
+  <ul class="section-list">
+    {policySections.map(section => (
+      <li>
+        <a href={`/manifesto/policies/${section.slug}/`} class="section-link">
+          <span class="section-name">{section.title}</span>
+          <span class="section-desc">{section.description}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</ManifestoLayout>
+
+<style>
+  .lead {
+    font-size: 1.2rem;
+    color: var(--color-text-highlight);
+  }
+  .section-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.75rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 0.75rem;
+  }
+  .section-link {
+    display: block;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-primary-muted);
+    border-radius: 0.4rem;
+    background-color: var(--color-bg-muted);
+    text-decoration: none;
+  }
+  .section-link:hover {
+    border-left-color: var(--color-primary);
+  }
+  .section-name {
+    display: block;
+    font-family: Electrolize, sans-serif;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+  }
+  .section-link:hover .section-name {
+    color: var(--color-primary-hover);
+  }
+  .section-desc {
+    display: block;
+    margin-top: 0.2rem;
+    color: var(--color-text-muted);
+  }
+</style>

@@ -15,7 +15,7 @@ We consider three guiding principles:
 
 If there was only one individual in the world, there would be no right or wrong. There would just be *choices* freely made, and consequences enjoyed (or suffered) subject to the constraints of reality. There would be no need for policies, manifestos or social contracts.
 
-Individuals with autonomy define good and bad according to their own preferences, and decide accordingly. We can define *value* as a subjective, probability weighted metric that represents these preferences over outcomes. This can be viewed as a variant subjective expected utility theory as first proposed by von Neumann and Morgenstern (1944) and further developed by Savage (1954).
+Individuals with autonomy define good and bad according to their own preferences, and decide accordingly. We can define *value* as a subjective, probability weighted metric that represents these preferences over outcomes. This can be viewed as a variant of subjective expected utility theory as first proposed by von Neumann and Morgenstern (1944) and further developed by Savage (1954).
 
 To illustrate this, consider a simplified world with three possible outcomes that the individual cares about (in order of preference):
 
@@ -23,7 +23,7 @@ To illustrate this, consider a simplified world with three possible outcomes tha
 - Eat fruit
 - Eat nothing (worst)
 
-How can we assign numeric values to these? Without loss of generality, consider the best outcome to be worth `100` and the worst to be worth `0` (the scale doesn't matter). But how much is fruit worth ('X')? We can't simply assume `X=50`, since the individual might be very hungry and be almost as happy with fruit as fish. Or the might be very bored of fruit, and consider it little better than nothing.
+How can we assign numeric values to these? Without loss of generality, consider the best outcome to be worth `100` and the worst to be worth `0` (the scale doesn't matter). But how much is fruit worth ('X')? We can't simply assume `X=50`, since the individual might be very hungry and be almost as happy with fruit as fish. Or they might be very bored of fruit, and consider it little better than nothing.
 
 The answer depends on probability weighting. Consider the options the individual faces:
 
@@ -55,11 +55,9 @@ A net increase in value that has distributional effects (i.e. the average indivi
 
 ## Fairness
 
-Fairness
-
 Everyone should benefit from progress, so fairness implies that everyone should be given better outcomes under a well-run society (at least compared to a situation where the benefits of society were not provided).
 
-Sometimes *social choice* may result in negative effects on some individuals. Fairness required that they are properly compensated for these effects. This should always be possible, since if the choice is a net benefit for society as a whole, there must have been sufficient value created to fully compensate and individual losses.
+Sometimes *social choice* may result in negative effects on some individuals. Fairness requires that they are properly compensated for these effects. This should always be possible, since if the choice is a net benefit for society as a whole, there must have been sufficient value created to fully compensate any individual losses.
 
 It is very important to note that fairness does *not* imply equal outcomes. Outcomes are significantly affected by individual choices (which we guarantee by the principle of autonomy) and chance (if you choose to take a risk, you do well or badly, but it was your choice....). Society's role is enabler, not an equaliser: if risks are chosen freely, rewards (or losses) are owned.
 

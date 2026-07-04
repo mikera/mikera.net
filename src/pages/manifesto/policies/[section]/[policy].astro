@@ -1,0 +1,41 @@
+---
+import ManifestoLayout from '../../../../layouts/ManifestoLayout.astro'
+import { getCollection, render } from 'astro:content'
+import { sectionTitle } from '../../../../data/policySections'
+
+export async function getStaticPaths() {
+  const policies = await getCollection('policies')
+  return policies.map(policy => ({
+    params: { section: policy.data.section, policy: policy.id },
+    props: { policy }
+  }))
+}
+
+const { policy } = Astro.props
+const { Content } = await render(policy)
+---
+
+<ManifestoLayout
+  title={`${policy.data.title} — Policies — mikera.net`}
+  currentId={policy.id}
+  currentSection={policy.data.section}
+>
+  <p class="breadcrumb">
+    <a href={`/manifesto/policies/${policy.data.section}/`}>← {sectionTitle(policy.data.section)}</a>
+  </p>
+  <h1>{policy.data.title}</h1>
+  {policy.data.summary && <p class="lead">{policy.data.summary}</p>}
+  <Content />
+</ManifestoLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-text-highlight);
+    margin-top: 0.25rem;
+  }
+</style>

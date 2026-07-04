@@ -5,7 +5,8 @@ interface Props {
 }
 
 const { title = 'mikera.net', description = "Mike Anderson's personal page" } = Astro.props
-const currentPath = Astro.url.pathname
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const ogImage = new URL('/mike-bw.jpg', Astro.site)
 ---
 
 <html lang="en">
@@ -16,13 +17,14 @@ const currentPath = Astro.url.pathname
     <meta name="keywords" content="hacker, developer, open-source, economics, crypto, blockchain, data, AI, freedom" />
     <meta name="author" content="mikera" />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
     <meta property="og:title" content="mikera" />
     <meta property="og:description" content="Where code meets creativity. Explore my projects and hacks." />
-    <meta property="og:url" content="https://mikera.net" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content="mikera.net" />
-    <meta property="og:image" content="/mike-bw.jpg" />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:image:alt" content="mikera featured image" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:type" content="website" />
@@ -31,14 +33,12 @@ const currentPath = Astro.url.pathname
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="mikera" />
     <meta name="twitter:description" content="Economics, crypto, AI and tech insights from mikera." />
-    <meta name="twitter:image" content="/mike-bw.jpg" />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="icon" href="/mikera-icon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
     <title>{title}</title>
   </head>

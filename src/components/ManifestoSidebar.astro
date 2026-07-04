@@ -1,42 +1,67 @@
 ---
 import { getCollection } from 'astro:content'
+import { policySections } from '../data/policySections'
 
 interface Props {
   currentId?: string
+  currentSection?: string
 }
 
-const { currentId } = Astro.props
+const { currentId, currentSection } = Astro.props
 
 const topics = (await getCollection('manifesto')).sort((a, b) => a.data.order - b.data.order)
+const policies = (await getCollection('policies')).sort((a, b) => a.data.order - b.data.order)
 const essays = (await getCollection('essays')).sort((a, b) => a.data.order - b.data.order)
+const policiesFor = (slug: string) => policies.filter(p => p.data.section === slug)
 ---
 
-<aside class="manifesto-topics" style="min-width: 200px;">
+<aside class="sidebar">
   <nav>
-    <ul style="list-style: none; padding: 0;">
+    <p class="group-heading"><a href="/manifesto/">Manifesto</a></p>
+    <ul class="nav-list">
       {topics.map(t => (
         <li>
-          <a
-            href={`/manifesto/${t.id}/`}
-            class={t.id === currentId ? 'is-active' : ''}
-            style="display: block; padding: 0.2rem; text-decoration: none;"
-          >
+          <a href={`/manifesto/${t.id}/`} class:list={["nav-link", { active: t.id === currentId }]}>
             {t.data.title}
           </a>
         </li>
       ))}
     </ul>
+
+    <p class="group-heading">
+      <a href="/manifesto/policies/" class:list={{ active: currentId === 'policies' }}>Policies</a>
+    </p>
+    <ul class="nav-list">
+      {policySections.map(s => (
+        <li>
+          <a href={`/manifesto/policies/${s.slug}/`} class:list={["nav-link", { active: s.slug === currentSection }]}>
+            {s.title}
+          </a>
+          {s.slug === currentSection && policiesFor(s.slug).length > 0 && (
+            <ul class="nav-list">
+              {policiesFor(s.slug).map(p => (
+                <li>
+                  <a
+                    href={`/manifesto/policies/${s.slug}/${p.id}/`}
+                    class:list={["nav-link", "nav-sublink", { active: p.id === currentId }]}
+                  >
+                    {p.data.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+
     {essays.length > 0 && (
       <>
-        <h5 style="margin-top: 1rem; margin-bottom: 0.3rem;">Essays</h5>
-        <ul style="list-style: none; padding: 0;">
+        <p class="group-heading">Essays</p>
+        <ul class="nav-list">
           {essays.map(e => (
             <li>
-              <a
-                href={`/manifesto/essays/${e.id}/`}
-                class={e.id === currentId ? 'is-active' : ''}
-                style="display: block; padding: 0.2rem; text-decoration: none;"
-              >
+              <a href={`/manifesto/essays/${e.id}/`} class:list={["nav-link", { active: e.id === currentId }]}>
                 {e.data.title}
               </a>
             </li>
@@ -46,3 +71,72 @@ const essays = (await getCollection('essays')).sort((a, b) => a.data.order - b.d
     )}
   </nav>
 </aside>
+
+<style>
+  .sidebar {
+    min-width: 210px;
+    align-self: flex-start;
+    position: sticky;
+    top: calc(var(--header-height) + 1rem);
+    max-height: calc(100dvh - var(--header-height) - 2rem);
+    overflow-y: auto;
+  }
+
+  @media (max-width: 640px) {
+    .sidebar {
+      position: static;
+      max-height: none;
+      overflow: visible;
+    }
+  }
+
+  .group-heading {
+    font-family: Electrolize, sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin: 1.5rem 0 0.4rem;
+  }
+
+  .sidebar nav > .group-heading:first-child {
+    margin-top: 0;
+  }
+
+  .group-heading a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .group-heading a.active {
+    color: var(--color-primary);
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.2rem 0.5rem;
+    text-decoration: none;
+    color: var(--color-primary-muted);
+    border-left: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary-hover);
+  }
+
+  .nav-link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  .nav-sublink {
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+  }
+</style>

@@ -35,11 +35,14 @@
   --main-padding: 2rem;
   --container-padding: 1rem;
   --container-gap: 1rem;
+  --header-height: 4rem;
 
-  font-size: 12;
   --font-size-base: clamp(1rem, calc(0.7rem + 0.6vw), 2rem);
   font-size: var(--font-size-base);
 
+  /* Always reserve space for the scrollbar so content never shifts
+     when it appears/disappears between short and tall pages. */
+  scrollbar-gutter: stable;
 }
 
 /* Basic reset and minimal styles */
@@ -51,7 +54,7 @@
 }
 
 body {
-    font-family: Noto Serif, sans-serif;
+    font-family: 'Noto Serif', serif;
     line-height: 1.4;
     color: var(--color-text);
     background-color: var(--color-bg);
@@ -113,20 +116,6 @@ a {
 
 a:hover {
     color: var(--color-primary-hover);
-}
-
-/* Manifesto topics sidebar */
-.manifesto-topics nav a {
-    color: var(--color-primary-muted);
-}
-
-.manifesto-topics nav a:hover {
-    color: var(--color-primary-hover);
-}
-
-.manifesto-topics nav a.is-active {
-    color: var(--color-primary);
-    font-weight: 600;
 }
 
 input, button, textarea, select {
@@ -214,11 +203,17 @@ img, picture, video, canvas, svg {
 /* Header Menu */
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
     display: flex;
-    padding: var(--main-padding);
+    min-height: var(--header-height);
+    padding: 0 var(--main-padding);
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .menubar {

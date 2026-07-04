@@ -1,0 +1,57 @@
+---
+import ManifestoLayout from '../../../../layouts/ManifestoLayout.astro'
+import { getCollection } from 'astro:content'
+import { policySections } from '../../../../data/policySections'
+
+export async function getStaticPaths() {
+  return policySections.map(section => ({
+    params: { section: section.slug },
+    props: { section }
+  }))
+}
+
+const { section } = Astro.props
+const policies = (await getCollection('policies'))
+  .filter(p => p.data.section === section.slug)
+  .sort((a, b) => a.data.order - b.data.order)
+---
+
+<ManifestoLayout title={`${section.title} — Policies — mikera.net`} currentSection={section.slug}>
+  <p class="breadcrumb"><a href="/manifesto/policies/">← All policies</a></p>
+  <h1>{section.title}</h1>
+  <p class="lead">{section.description}</p>
+
+  {policies.length > 0 ? (
+    <ul class="policy-list">
+      {policies.map(p => (
+        <li>
+          <a href={`/manifesto/policies/${section.slug}/${p.id}/`}>{p.data.title}</a>
+          {p.data.summary && <span class="policy-summary"> — {p.data.summary}</span>}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p><em>Policies in this area are being drafted.</em></p>
+  )}
+</ManifestoLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  .lead {
+    font-size: 1.2rem;
+    color: var(--color-text-highlight);
+  }
+  .policy-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .policy-list li {
+    margin: 0.6rem 0;
+  }
+  .policy-summary {
+    color: var(--color-text-muted);
+  }
+</style>

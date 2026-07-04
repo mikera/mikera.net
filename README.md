@@ -1,15 +1,16 @@
 # Mike Anderson's Personal Website
 
-A minimal, static Next.js website for [mikera.net](https://mikera.net).
+A minimal, static [Astro](https://astro.build) website for [mikera.net](https://mikera.net).
 
 ## Build Scripts
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build the application
-- `pnpm start` - Start production server
+- `pnpm dev` - Start the development server (localhost:3000)
+- `pnpm build` - Build the static site to `dist/`
+- `pnpm preview` - Preview the production build locally
 
 ## Deployment
 
-The `master` branch is automatically deployed to GitHub Pages via GitHub Actions workflow.
+The `master` branch is automatically built and deployed to GitHub Pages via the
+`.github/workflows/deploy.yml` GitHub Actions workflow.
 
-© 2025 Mike Anderson. All rights reserved. 
+© 2025 Mike Anderson. All rights reserved.

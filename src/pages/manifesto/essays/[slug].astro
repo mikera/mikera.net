@@ -1,6 +1,5 @@
 ---
-import Base from '../../../layouts/Base.astro'
-import ManifestoSidebar from '../../../components/ManifestoSidebar.astro'
+import ManifestoLayout from '../../../layouts/ManifestoLayout.astro'
 import { getCollection, render } from 'astro:content'
 
 export async function getStaticPaths() {
@@ -15,11 +14,6 @@ const { essay } = Astro.props
 const { Content } = await render(essay)
 ---
 
-<Base title={`${essay.data.title} - mikera.net`}>
-  <div style="display: flex; gap: 1rem;">
-    <ManifestoSidebar currentId={essay.id} />
-    <div style="flex: 1;" class="markdown-body">
-      <Content />
-    </div>
-  </div>
-</Base>
+<ManifestoLayout title={`${essay.data.title} - mikera.net`} currentId={essay.id}>
+  <Content />
+</ManifestoLayout>
